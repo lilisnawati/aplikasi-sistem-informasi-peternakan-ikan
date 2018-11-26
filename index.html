@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SISTEM  INFORMASI PETERNAKAN IKAN </title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
+    <link rel="stylesheet" href="css/MarkerCluster.css" />
+    <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="css/leaflet.draw.css" />
+    <link rel="stylesheet" href="css/leaflet.measurecontrol.css" />
+    <style type="text/css">
+        #map {height: 800px;padding: 0;margin: 0;}
+    </style>
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+</head>
+<body id="page-top" class="index" ng-controller="appCtrl">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/freelancer.min.js"></script>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet-heat.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/OSMBuildings-Leaflet.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/leaflet.draw.js"></script>
+    <script src="js/leaflet.measurecontrol.js"></script>
+    <script src="js/leaflet.markercluster.js"></script>
+    <script src="data/SebaranRS0.js"></script>
+    <head>
+    <style type="text/css">
+    body{background-color: gray}
+
+    </style>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="#page-top">SISTEM INFORMASI PETERNAKAN IKAN</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">Jenis Ikan</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Profil</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+            <div class="row">
+                <div class="col-lg-12">
+                    <img style="width:100%;margin:100px 0px 0px 0px;" src="img/profil3.jpg" alt="">
+                </div>
+            </div>
+    </header>
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Jenis Ikan</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#emas" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-link fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/emas.jpg" class="img-responsive" alt="emas">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#lele" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-link fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/lele.jpg" class="img-responsive" alt="lele">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#patin" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-link fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/patin.jpg" class="img-responsive" alt="patin">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="#nila" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-link fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/nila.jpg" class="img-responsive" alt="nila">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section style="padding-top:40px" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Profil</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 contact-item">
+                    <a href="#foto" class="contact-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-link fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/foto.jpg" class="img-responsive" alt="foto">
+                    </a>
+                </div>
+			</div>	
+		</div>	
+    </section>
+    <div>
+	
+        <!--emas-->
+		
+        <div class="portfolio-modal modal fade" id="emas" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>PEMBUDIDAYAAN IKAN EMAS</h2>
+                            <hr class="star-primary">
+                            <img src="img/emas.jpg" class="img-responsive img-centered" alt="">
+                            <p style="text-align:justify">Ikan mas atau Ikan karper (Cyprinus carpio) adalah ikan air tawar yang bernilai ekonomis penting dan sudah tersebar luas di Indonesia.Di Indonesia, ikan mas mulai dipelihara sekitar tahun 1920-an. Ikan mas yang terdapat di Indonesia merupakan ikan mas yang dibawa dari Cina, Eropa, Taiwan dan Jepang. Selain itu "ikan mas punten" dan "ikan mas majalaya" merupakan hasil seleksi di Indonesia.</p>
+                            <h4>Pembenihan ikan mas</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Untuk memulai usaha budidaya ikan mas, hal pertama yanng harus disiapkan adalah memilih bibit atau calon indukan. Calon indukan ini diusahakan harus dari keturunan yang memiliki sifat unggul. Sehingga menghasilkan benih yang memiliki produktivitas tinggi.</p><p style="text-align:justify">Calon indukan ikan mas dipelihara dalam kolam pembibitan, dipisahkan antara indukan jantan dan betina. Pemisahan dilakukan sampai kedua indukan siap memijah. Proses pemijahan atau perkawinan ikan mas dilakukan di kolam khusus. Kolam tersebut harus dilengkapi dengan kakaban, tempat untuk menempelkan telur hasil pembuahan.Untuk mengetahui lebih detail mengenai cara membenihkan ikan mas, silahkan baca ulasan kami sebelumnya tentang pembenihan ikan mas.</p>
+                            <h4>Pembesaran ikan mas</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Benih yang digunakan dalam usaha budidaya ikan mas biasanya berukuran 10-12 cm atau berbobot sekitar 80-100 gram per ekor. Ukuran benih sebesar ini diharapkan sudah cukup kuat untuk dibesarkan. Sehingga risiko kegagalan bisa ditekan. Lama pembesaran ikan mas berkisar 2-3 bulan.</p><p style="text-align:justify">Budidaya ikan mas bisa dilakukan dalam berbagai teknik seperti metode air deras, air tenang atau tumpang sari. Medium atau tempatnya bisa berupa kolam tanah, kolam tembok, kolam terpal, sawah, keramba dan jaring apung.</p>
+							<h4>Pengendalian hama dan penyakit</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Bebeasan (Notonecta)Pencegahan: pasang saringan halus dari kawat atau kain kasa di pintu masuk air. Saringan halus bisa mencegah benih dan telur bebeasan masuk ke dalam kolam.Pemberantasan: Percikan minyak tanah pada permukaan air kolam. Jumlah minyak tanah yang diperlukan 5 cc/m2 luas permukaan kolam. Bebeasan akan mati bila minyak tanah masuk ke dalam sistem pernapasannya.</p><p style="text-align:justify">Ucrit (Larva cybister)Pencegahan: bersihkan kolam dan lingkungan sekitarnya dari material organik. Selain itu pemasangan saringan di saluran masuk pintu kolam dengan kawat halus bisa mencegah hama ini masuk ke dalam kolam.Pemberantasan: lakukan penangkapan ucrit secara manual, bisa menggunakan alat seser atau serokan dengan jaring halus. Bila dengan penangkapan tidak bisa, solusi akhirnya bisa menggunakan minyak tanah. Semprotkan minyak tanah ke permukaan kolam dengan dosis sama dengan memberantas bebeasan.</p>
+							<h4>Panen budidaya ikan mas</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Secara umum tingkat keekonomian pembesaran ikan mas berada pada kisaran 300-400 gram per ekor. Bobot ikan dibawah itu, masih punya potensi untuk dibesarkan. Sedangkan bila melebihi bobot tersebut, ikan mas sudah tidak ekonomis lagi untuk dibesarkan. Porsi pakan yang dikonsumsi ikan sudah tidak sebanding lagi dengan pertumbuhan dan harga jual ikan.</p><p style="text-align:justify">Waktu yang dibutuhkan untuk budidaya ikan mas dari ukuran 100 gram per ekor, sampai ukuran siap konsumsi 300-400 gram ekor sekitar 2-3 bulan. Dalam kurun waktu tersebut bobot ikan akan tumbuh 3-4 kali lipat.</p>
+							
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                            <ul class="list-inline item-details">
+                     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--emas-->
+
+    <!--lele-->
+        <div class="portfolio-modal modal fade" id="lele" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>PEMBUDIDAYAAN IKAN LELE</h2>
+                            <hr class="star-primary">
+                            <img src="img/lele.jpg" class="img-responsive img-centered" alt="">
+                            <p style="text-align:justify">Lele merupakan jenis ikan konsumsi air tawar dengan tubuh memanjang dan kulit licin. Di Indonesia ikan lele mempunyai beberapa nama daerah, antara lain: ikan kalang (Padang), ikan maut (Gayo, Aceh), ikan pintet (Kalimantan Selatan), ikan keling (Makasar), ikan cepi (Bugis), ikan lele atau lindi (Jawa Tengah). Sedang di negara lain dikenal dengan nama mali (Afrika), plamond (Thailand), ikan keli (Malaysia), gura magura (Srilangka), ca tre trang (Jepang). Dalam bahasa Inggris disebut pula catfish, siluroid, mudfish dan walking catfish. Ikan lele tidak pernah ditemukan di air payau atau air asin. Habitatnya di sungaidengan arus air yang perlahan, rawa, telaga, waduk, sawah yang tergenang air. Ikan lele bersifat noctural, yaitu aktif bergerak mencari makanan pada malam hari. Pada siang hari, ikan lele berdiam diri dan berlindung di tempat-tempat gelap. Di alam ikan lele memijah pada musim penghujan.</p>
+                            <h4>Penyiapan kolam tempat budidaya ikan lele</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Ada berbagai macam tipe kolam yang bisa digunakan untuk tempat budidaya ikan lele. Setiap tipe kolam memiliki keunggulan dan kelemahan masing-masing bila ditinjau dari segi usaha budidaya. Untuk memutuskan kolam apa yang cocok, harap pertimbangkan kondisi lingkungan, ketersediaan tenaga kerja dan sumber dana ada.</p><p style="text-align:justify">Tipe-tipe kolam yang umum digunakan dalam budidaya ikan lele adalah kolam tanah, kolam semen, kolam terpal, jaring apung dan keramba. Namun dalam artikel ini kita akan membahas kolam tanah, mengingat jenis kolam ini paling banyak digunakan oleh para peternak ikan.</p>
+                            <h4>Pemilihan benih ikan lele</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Syarat benih unggul:Benih yang ditebar harus benih yang benar-benar sehat. Ciri-ciri benih yang sehat gerakannya lincah, tidak terdapat cacat atau luka dipermukaan tubuhnya, bebas dari bibit penyakit dan gerakan renangnya normal. Untuk menguji gerakannya, tempatkan ikan pada arus air. Jika ikan tersebut menantang arah arus air dan bisa bertahan berarti gerakan renangnya baik.Ukuran benih untuk budidaya ikan lele biasanya memiliki panjang sekitar 5-7 cm. Usahakan ukurannya rata agar ikan bisa tumbuh dan berkembang serempak. Dari benih sebesar itu, dalam jangka waktu pemeliharaan 2,5-3,5 bulan akan didapatkan lele ukuran konsumsi sebesar 9-12 ekor per kilogram.</p><p style="text-align:justify">Cara menebar benih:Sebelum benih ditebar, lakukan penyesuaian iklim terlebih dahulu. Caranya, masukan benih dengan wadahnya (ember/jeriken) ke dalam kolam. Biarkan selama 15 menit agar terjadi penyesuaian suhu tempat benih dengan suhu kolam sebagai lingkungan barunya. Miringkan wadah dan biarkan benih keluar dengan sendirinya. Metode ini bermanfaat mencegah stres pada benih.Tebarkan benih ikan lele ke dalam kolam dengan kepadatan 200-400 ekor per meter persegi. Semakin baik kualitas air kolam, semakin tinggi jumlah benih yang bisa ditampung. Hendaknya tinggi air tidak lebih dari 40 cm saat benih ditebar. Hal ini menjaga agar benih ikan bisa menjangkau permukaan air untuk mengambil pakan atau bernapas. Pengisian kolam berikutnya disesuaikan dengan ukuran tubuh ikan sampai mencapai ketinggian air yang ideal.</p>
+							<h4>Pakan untuk budidaya ikan lele</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Pakan merupakan komponen biaya terbesar dalam budidaya ikan lele. Ada banyak sekali merek dan ragam pakan di pasaran. Pakan ikan lele yang baik adalah pakan yang menawarkan Food Convertion Ratio (FCR) lebih kecil dari satu. FCR adalah rasio jumlah pakan berbanding pertumbuhan daging. Semakin kecil nilai FCR, semakin baik kualitas pakan.</p>
+							<h4>Pengelolaan air</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Hal penting lain dalam budidaya ikan lele adalah pengelolaan air kolam. Untuk mendapatkan hasil maksimal kualitas dan kuantitas air harus tetap terjaga.Awasi kualitas air dari timbunan sisa pakan yang tidak habis di dasar kolam. Timbunan tersebut akan menimbulkan gas amonia atau hidrogen sulfida yang dicirikan dengan adanya bau busuk.</p><p style="text-align:justify">Apabila sudah muncul bau busuk, buang sepertiga air bagian bawah. Kemudian isi lagi dengan air baru. Frekuensi pembuangan air sangat tergantung pada kebiasaan pemberian pakan. Apabila dalam pemberian pakan banyak menimbulkan sisa, pergantian air akan lebih sering dilakukan.</P>
+							<h4>Pengendalian hama dan penyakit</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Hama yang paling umum dalam budidaya ikan lele antara lain hama predator seperti linsang, ular, sero, musang air dan burung. Sedangkan hama yang menjadi pesaing antara lain ikan mujair. Untuk mencegahnya yaitu dengan memasang saringan pada jalan masuk dan keluar air atau memasang pagar di sekeliling kolam.</p><p style="text-align:justify">Penyakit pada budidaya ikan lele bisa datang dari protozoa, bakteri dan virus. Ketiga mikroorganisme ini menyebabkan berbagai penyakit yang mematikan. Beberapa diantaranya adalah bintik putih, kembung perut dan luka di kepala dan ekor.</p>
+							<h4>Panen budidaya ikan lele</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Ikan lele bisa dipanen setelah mencapai ukuran 9-12 ekor per kg. Ukuran sebesar itu bisa dicapai dalam tempo 2,5-3,5 bulan dari benih berukuran 5-7 cm. Berbeda dengan konsumsi domestik, ikan lele untuk tujuan ekspor biasanya mencapai ukuran 500 gram per ekor.</p><p style="text-align:justify">Satu hari (24 jam) sebelum panen, sebaiknya ikan lele tidak diberi pakan agar tidak buang kotoran saat diangkut. Pada saat ikan lele dipanen lakukan sortasi untuk misahkan lele berdasarkan ukurannya. Pemisahan ukuran berdampak pada harga. Ikan lele yang sudah disortasi berdasarkan ukuran akan meningkatkan pendapatan bagi peternak.</p>
+
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                            <ul class="list-inline item-details">
+                     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--lele-->
+
+    <!--patin-->
+        <div class="portfolio-modal modal fade" id="patin" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>PEMBUDIDAYAAN IKAN PATIN</h2>
+                            <hr class="star-primary">
+                            <img src="img/patin.jpg" class="img-responsive img-centered" alt="">
+                            <p style="text-align:justify">Ikan patin merupakan jenis ikan konsumsi air tawar, berbadan panjang berwarna putih perak dengan punggung berwarna kebiru-biruan. Ikan patin dikenal sebagai komoditi yang berprospek cerah, karena memiliki harga jual yang tinggi. Hal inilah yang menyebabkan ikan patin mendapat perhatian dan diminati oleh para pengusaha untuk membudidayakannya. Ikan ini cukup responsif terhadap pemberian makanan tambahan. Pada pembudidayaan, dalam usia enam bulan ikan patin bisa mencapai panjang 35-40 cm. Sebagai keluarga Pangasidae, ikan ini tidak membutuhkan perairan yang mengalir untuk “membongsorkan“ tubuhnya. Pada perairan yang tidak mengalir dengan kandungan oksigen rendahpun sudah memenuhi syarat untuk membesarkan ikan ini.</p><p style="text-align:justify">Ikan patin berbadan panjang untuk ukuran ikan tawar lokal, warna putih seperti perak, punggung berwarna kebiru-biruan. Kepala ikan patin relatif kecil, mulut terletak di ujung kepala agak di sebelah bawah (merupakan ciri khas golongan catfish). Pada sudut mulutnya terdapat dua pasang kumis pendek yang berfungsi sebagai peraba.</p><p style="text-align:justify">Penangkaran ikan patin banyak terdapat di Lampung, Sumatera Selatan, Jawa Barat, Kalimantan.</p>
+                            <h4> Pemilihan Benih</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Pemilihan benih yang tepat akan menentukan kualitas dan lama waktu panen. Untuk dapat memperoleh benih ikan patin anda bisa melakukan pemijahan sendiri.</p><p style="text-align:justify">Anda beberapa hal dibawah ini yang harus anda perhatikan saat akan membeli benih ikan patin .Lokasi pembelian benih jangan terlalu jauh dari lokasi rumah anda untuk menghindari kematian benih ikan patin selama diperjalanan.Benih ikan patin dibeli saat kolam telah siap untuk diisi.arga benih sangat tergantung pada jenis dan ukuran benih. Semakin besar ukuran tentu waktu panen akan semakin cepat.Pilih benih yang berukuran seragam dan cerah mengkilap.Tidak cacat dan luka pada tubuhnya serta bebas dari hama dan penyakit.Benih ikan patin bergerak bebas dan lincah, dan Angkut benih dengan hati-hati jika menggunakan kantong plastik maka perhatikan kadar oksigen di dalam kantong plastik.</p
+                            <h4>Pembuatan Kolam Terpal</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Kolam ikan yang berasal dari terpal biasanya dibuat dengan tujuan agar budidaya lebih hemt dan efisien. Selain itu juga kolam terpal bisa menyesuaikan dengan luas lahan yang dimiliki yang yang paling penting saat sudah tidak lagi digunakan kolam terpal dapat langsung dibongkar tanpa meninggalkan kerusakan pada tanah.</p>
+							<h4>Pemberian Pakan</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Pemberian pakan pelet ikan diberikan dengan komposisi 3/4 dari bobot tubuh ikan per hari yang ada di kolam. Saat benih masih berukuran kecil pemberian pakan harus lebih sering sebanyak 4-5 kali. Dan berkurang cukup hanya 3 kali dalam sehari saat ikan patin telah memasuki masa siap panen.Pemberian pakan dilakukan dengan menaburkan pakan secara merata pada permukaan kolam.</p><p style="text-align:justify">Berikan pakan secara bertahap, tambah jumlah saat ikan masih bersikap agresif dan kurangi jumlah saat ikan mulai malas menyambut pakan.</p>
+							<h4>Pemeliharaan Rutin</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Dalam budidaya ikan patin terdapat aspek pemeliharaan yang wajib yang harus diperhatikan. Berbeda dengan cara budidaya ikan air tawar, pengelolaan air harus dilakukan dengan baik serta memperhatikan hal hal seperti berikut :Lakukan penggantian air secara rutin dengan frekuensi 2-3 minggu sekali.Hal ini berguna untuk membuang sisa-sisa kotoran makanan, amoniak dan kotoran ikan yang ada di dalam kolam.Penggantian air kolam dilakukan secara bertahap dengan membuang 1/3 bagian dasar kolam.Baru kemudian  setelahnya tambahkan air bersih kedalam kolam secara perlahan.Pada musim kemarau anda harus secara intensif mengecek kondisi volume air kolam, karena pada musim kemarau air akan lebih cepat menguap.Dan segera tambahkan air saat volume air mulai berkurang. </p>
+							<h4>Ikan Patin Siap Di Panen</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Seperti cara bududaya ikan air tawar cepat panen setelah berumur 5-6 bulan setelah benih di tebar maka tahap selanjutnya adalah ikan patin sip dipanen.</p><p style="text-align:justify">Ada beberapa hal yang harus diperhatikan dalam panen ikan patin antara lain:Keringkan air di dalam kolam dan sisakan volume air sebanyak 1/3 bagian. Kemudian gunakan jaring unthk mengangkap ikan patin.Lakukan panen dengan hati-hati agar tidak ada luka pada tubuh ikan patin. Segera masukkan hasil pane kedalam air segar.Untuk menjaga kesegaran ikan patin gunakan air dengan suhu 20 derajat celcius di dalam kantong plastik transparan.Serta jangan lupa tambahkan oksigen agar ikan dapat tetap hidup. Kepadatan ikan di dalam kantong jangan terlalu oadat dan berjejal. Lakukan penganggukatan hasil panen pada pagi atau sore hari.</p>
+
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                            <ul class="list-inline item-details">
+                     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--patin-->
+
+   <!--nila-->
+        <div class="portfolio-modal modal fade" id="nila" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>PEMBUDIDAYAAN IKAN NILA</h2>
+                            <hr class="star-primary">
+                            <img src="img/nila.jpg" class="img-responsive img-centered" alt="">
+                            <p style="text-align:justify"> Ikan nila sangat dikenal oleh masyarakat penggemar ikan air tawar, baik di Negara berkembang maupun di Negara maju.Menurut sejarahnya, ikan nila pertama kali di datangkan dari Taiwan ke Balai Penelitian Perikanan Air Tawar, Bogor pada tahun 1969.Setahun kemudian, ikan nila mulai disebarkan ke beberapa daerah. Pemberian nama nila berdasarkan ketetapan Direktur Jendral Perikanan tahun 1972. Nama tersebut diambil dari nama spesies ikan ini, yakni nilotica yang kemudian diubah menjadi Nila.</p>
+                            <h4>Memilih Benih Ikan Nila</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Cara budidaya ikan nila yang pertama adalah memilih benih yang berkualitas. Pemilihan benih ikan nila ini bisa dikatakan sebagai faktor acuan atau faktor terpenting dari beberapa faktor lainnya. Karena faktor ini merupakan titik awal yang dapat menentukan keberhasilan dari budidaya ikan nila ini. Namun, bukan berarti beberapa faktor lain terbilang tidak penting, semuanya juga penting karena semuanya saling berkesinambungan dan berhubungan. </p><p style="text-align:justify">Perlu diketahui, bahwa dalam budidaya ikan nila, akan lebih muda membudidaya ikan nila yang dilakukan dengan cara monosex alias berkelamin tunggal. Karena cara budidaya ikan nila dengan cara monosex ini akan meningkatkan produktivitas jika dibandingkan dengan budidaya cara campuran. Hal ini disebabkan karena adanya sifat dari ikan nila itu sendiri yang sifatnya mudah memijah atau mudahnya mereka melakukan perkawinan sendiri. Berbeda halnya budidaya dengan cara campuran.</p><p style="text-align:justify">Budidaya ikan nila dengan cara campuran ini bisa membuat energi ikan cepat habis karena lebih sering membutuhkan tenaga ekstra dalam pemijahan mereka. Dengan adanya energi yang cepat terkuras, maka hal ini dapat menghambat pertumbuhan dari ikan nila tersebut karena energi sudah terkuras habis pada masa pemijahan mereka.</p>
+                            <h4>Persiapan Kolam Budidaya</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Anda tak perlu khawatir soal kolam atau penangkaran untuk budidaya ikan nila ini. Karena, ikan nila ini bisa dibudidaya di berbagai jenis kolam. Anda bisa menggunakan kolam semen, kolam tanah, kolam terpal, kolam semen, jaring terapung, atau bahkan Anda juga bisa menggunakan tambak air payau. Beberapa kolam tersebut sangat mudah dalam pembuatannya. Itu sebabnya kenapa banyak orang yang mengatakan bahwa budidaya ikan nila ini sangat mudah dilakukan.</p>
+							<h4>Penebaran Benih Ikan Nila</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Jika kolam sudah terisi air hingga kedalaman 60 sampai 75 cm, maka kolam siap ditebari benih ikan nila yang sudah disiapkan. Umumnya, per meter persegi kolam itu berisi 15 sampai 20 ekor nila dengan asumsi per ekornya seberat 10 sampai 20 gram dan bisa dipanen dengan ukuran seberat 300 gram per ekor.</p><p style="text-align:justify">Namun, perlu diingat, bahwa sebelum penebaran benih, Anda perlu melakukan adaptasi terhadap benih ikan nila terlebih dahulu, walaupun ikan nila merupakan jenis ikan yang mudah beradaptasi. Hal ini diperlukan, agar benih ikan nila dapat terbiasa dengan kolam yang baru, jadi resiko kematian pada benih ikan nila ini dapat terhindar dan diminimalisir.</p><p style="text-align:justify">Anda bisa mengadaptasikan benih ikan nila ini dengan cara memasukan benih ke dalam wadah dengan isi air dari kolam. Biarkan selama beberapa jam. Lalu, miringkan wadah tersebut, sampai ikan tersebut keluar dengan sendirinya dan terjun ke kolam yang sudah Anda siapkan untuk benih ikan nila.</p>
+							<h4>Pemiliharaan Budidaya Ikan Nila</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Setelah semuanya siap, dari pembuatan kolam hingga ke penebaran benih, saatnya Anda melakukan perawatan dan pemeliharaan ikan nila hingga pada masa panen. Ada tiga hal penting yang perlu Anda ketahui dalam pemeliharaan ikan nila ini yaitu pengelolaan air, pemberian pakan, dan pengendalian hama penyakit.</p><p style="text-align:justify">Pengelolaan AirPerhatikan air kolam, jika Anda ingin memiliki ikan nila yang berkualitas. Anda perlu memperhatikan kualitas air dari kandungan oksigen dan pH air. Anda juga bisa memperhatikan kadar NH3, CO2, dan H2s pada air kolam. Jika kadar oksigen dalam kolam mulai menurun, sebaiknya air Anda perderas saja sirkulasi air dengan memperbesar debit air. Jika air kolam ini mulai berbau busuk, kemungkinan air kolam mulai mengandung NH3 dan H2S dan segera lakukan penggantian air.</p><p style="text-align:justify"> Pemberian PakanDalam budidaya ikan nila, pengelolaan pakan ikan nila sangatlah penting. Perlu diketahui bahwa biaya pakan ini merupakan biaya paling besar daripada biaya lainnya dalam budidaya ikan nila.Anda bisa menggunakan pellet dengan kadar protein sebesar 20 sampai 30 persen pada ikan nila Anda. Umumnya, ikan nila ini membutuhkan pakan sebanyak 3% dari bobot tubuh setiap harinya. Anda bisa memberikan pakan pada ikan nila ini pada pagi dan sore hari. Selain itu, setiap dua minggu sekali ukur berat badan ikan nila dengan menggunakan sampel satu ekor ikan nila dan Anda bisa menyesuaikan jumlah pakan yang harus diberikan ke ikan nila Anda.</p><p style="text-align:justify">Pengendalian Hama dan Penyakit Seperti sudah dijelaskan pada pembahasan sebelumnya, bahwa ikan nila ini termasuk ke dalam ikan yang tahan banting. Secara normal, sebenarnya penyakit ikan nila tidak terlalu mengkhawatirkan. Namun, apa salahnya Anda melakukan cek secara intesif dan missal dalam mewaspadai resiko penyakit pada ikan nila Anda.</p>
+							<h4>Masa Panen Ikan Nila</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Ikan nila yang sudah saatnya pada masa panen adalah ikan nila yang beragam sesuai kebutuhan. Ikan nila untuk pasar domestic berkisar 300 – 500 gram/ekor, sedangkan untuk ikan nila yang dipelihara sekitar 10 – 20 gram/ekor. Nah, ikan nila yang bisa mencapai 300 – 500 gram ini biasanya membutuhkan waktu hingga 4 sampai 6 bulan lamanya.</p>
+							
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                            <ul class="list-inline item-details">
+                     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--nila-->
+    
+    </div>
+    
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Lokasi</h3>
+                        <p>Jalan. Yos sudarso RT 19, Desa Loa Kulu Kota Kec Loa Kulu, Kutai Kartanegara
+                            <br>Kalimantan Timur 75124</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Media Sosial</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Instagram</span><i class="fa fa-fw fa-instagram"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Aplikasi Informasi Perikanan</h3>
+                        <p>Sistem informasi tentang pembudidayaan ikan konsumsi.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!--Copyright &copy; azis.exacrew 2017-->Copyright &copy; tugas kelompok 2018 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+      <!--foto-->
+        <div class="contact-modal modal fade" id="foto" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2 align="center">Profil</h2>
+                            <hr class="star-primary">
+                            <img src="img/foto.jpg" class="img-responsive img-centered" alt="">
+                            <p style="text-align:justify">Tahun didirikannya usaha keramba yaitu pada tahun 2000, awalnya hanya menjadi karyawan keramba 3 tahun setelah beberapa tahun kemudian kaka saya memberi modal untuk mebuka keramba sendiri  </p>
+                            <h4 align="center">Tujuan</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">bekerja untuk menjadikan usha maju.</p>
+                            <h4 align="center">Visi dan Misi</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Visi: Menjadi peternak ikan yang konsisten dan memberikan kualitas ikan yang jauh lebih berkualitas.</p><p style="text-align:justify">Misi: Budidaya ikan dengan gaya peteni moderen, selalu berusaha meneliti dan konsisten dalam merawat dan mengembangkan ikan, memberikan makan ikan dengan gizi dan nutrisi sesuai standar peternakan ikan.</p>
+							<h4 align="center">Pemasaran ikan tersebut</h4>
+							<hr class="star-primary">
+							<p style="text-align:justify">Hasil ikan dipasarkan ke pasar pagi,pasar jambah,harapan baru,lokjanan.</p>
+				
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</button>
+                            <ul class="list-inline item-details">
+                     
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--foto-->
+   
+</body>
+
+</html>
